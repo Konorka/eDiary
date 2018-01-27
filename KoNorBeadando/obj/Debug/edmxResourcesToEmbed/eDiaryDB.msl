@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="eDiaryModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="access">
+      <EntityTypeMapping TypeName="IsTypeOf(eDiaryModel.access)">
+        <MappingFragment StoreEntitySet="access">
+          <ScalarProperty Name="access_id" ColumnName="access_id" />
+          <ScalarProperty Name="access_name" ColumnName="access_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="class">
+      <EntityTypeMapping TypeName="IsTypeOf(eDiaryModel.class)">
+        <MappingFragment StoreEntitySet="class">
+          <ScalarProperty Name="class_id" ColumnName="class_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lesson">
+      <EntityTypeMapping TypeName="IsTypeOf(eDiaryModel.lesson)">
+        <MappingFragment StoreEntitySet="lesson">
+          <ScalarProperty Name="lesson_id" ColumnName="lesson_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parent">
+      <EntityTypeMapping TypeName="IsTypeOf(eDiaryModel.parent)">
+        <MappingFragment StoreEntitySet="parent">
+          <ScalarProperty Name="student_om_id" ColumnName="student_om_id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="score">
+      <EntityTypeMapping TypeName="IsTypeOf(eDiaryModel.score)">
+        <MappingFragment StoreEntitySet="score">
+          <ScalarProperty Name="score_studen_om_id" ColumnName="score_studen_om_id" />
+          <ScalarProperty Name="score_id" ColumnName="score_id" />
+          <ScalarProperty Name="score1" ColumnName="score1" />
+          <ScalarProperty Name="score_test_id" ColumnName="score_test_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student">
+      <EntityTypeMapping TypeName="IsTypeOf(eDiaryModel.student)">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="studen_om_id" ColumnName="studen_om_id" />
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="mother_name" ColumnName="mother_name" />
+          <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="home_phone" ColumnName="home_phone" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="student_user_id" ColumnName="student_user_id" />
+          <ScalarProperty Name="student_class_id" ColumnName="student_class_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teacher">
+      <EntityTypeMapping TypeName="IsTypeOf(eDiaryModel.teacher)">
+        <MappingFragment StoreEntitySet="teacher">
+          <ScalarProperty Name="teacher_om_id" ColumnName="teacher_om_id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="mother_name" ColumnName="mother_name" />
+          <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="home_phone" ColumnName="home_phone" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="teacher_user_id" ColumnName="teacher_user_id" />
+          <ScalarProperty Name="teacher_class_id" ColumnName="teacher_class_id" />
+          <ScalarProperty Name="teacher_lesson_id" ColumnName="teacher_lesson_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="test">
+      <EntityTypeMapping TypeName="IsTypeOf(eDiaryModel.test)">
+        <MappingFragment StoreEntitySet="test">
+          <ScalarProperty Name="test_id" ColumnName="test_id" />
+          <ScalarProperty Name="lesson_id" ColumnName="lesson_id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="test_class_id" ColumnName="test_class_id" />
+          <ScalarProperty Name="test_lesson_id" ColumnName="test_lesson_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userSet">
+      <EntityTypeMapping TypeName="IsTypeOf(eDiaryModel.user)">
+        <MappingFragment StoreEntitySet="userSet">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="user_access_id" ColumnName="user_access_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="eDiaryModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="eDiaryModelStoreContainer">
+    <EntitySet Name="access" EntityType="eDiaryModel.Store.access" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="class" EntityType="eDiaryModel.Store.class" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="lesson" EntityType="eDiaryModel.Store.lesson" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="parent" EntityType="eDiaryModel.Store.parent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="score" EntityType="eDiaryModel.Store.score" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="student" EntityType="eDiaryModel.Store.student" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="teacher" EntityType="eDiaryModel.Store.teacher" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="test" EntityType="eDiaryModel.Store.test" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="userSet" EntityType="eDiaryModel.Store.userSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="usersteacher" Association="eDiaryModel.Store.usersteacher">
+      <End Role="users" EntitySet="userSet" />
+      <End Role="teacher" EntitySet="teacher" />
+    </AssociationSet>
+    <AssociationSet Name="usersstudent" Association="eDiaryModel.Store.usersstudent">
+      <End Role="users" EntitySet="userSet" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="useraccess" Association="eDiaryModel.Store.useraccess">
+      <End Role="access" EntitySet="access" />
+      <End Role="user" EntitySet="userSet" />
+    </AssociationSet>
+    <AssociationSet Name="classstudent" Association="eDiaryModel.Store.classstudent">
+      <End Role="class" EntitySet="class" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="classteacher" Association="eDiaryModel.Store.classteacher">
+      <End Role="class" EntitySet="class" />
+      <End Role="teacher" EntitySet="teacher" />
+    </AssociationSet>
+    <AssociationSet Name="lessonteacher" Association="eDiaryModel.Store.lessonteacher">
+      <End Role="lesson" EntitySet="lesson" />
+      <End Role="teacher" EntitySet="teacher" />
+    </AssociationSet>
+    <AssociationSet Name="classtest" Association="eDiaryModel.Store.classtest">
+      <End Role="class" EntitySet="class" />
+      <End Role="test" EntitySet="test" />
+    </AssociationSet>
+    <AssociationSet Name="lessontest" Association="eDiaryModel.Store.lessontest">
+      <End Role="lesson" EntitySet="lesson" />
+      <End Role="test" EntitySet="test" />
+    </AssociationSet>
+    <AssociationSet Name="studentscore" Association="eDiaryModel.Store.studentscore">
+      <End Role="student" EntitySet="student" />
+      <End Role="score" EntitySet="score" />
+    </AssociationSet>
+    <AssociationSet Name="testscore" Association="eDiaryModel.Store.testscore">
+      <End Role="test" EntitySet="test" />
+      <End Role="score" EntitySet="score" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="access">
+    <Key>
+      <PropertyRef Name="access_id" />
+    </Key>
+    <Property Name="access_id" Type="int" Nullable="false" />
+    <Property Name="access_name" Type="nvarchar" Nullable="false" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="class">
+    <Key>
+      <PropertyRef Name="class_id" />
+    </Key>
+    <Property Name="class_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="lesson">
+    <Key>
+      <PropertyRef Name="lesson_id" />
+    </Key>
+    <Property Name="lesson_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="parent">
+    <Key>
+      <PropertyRef Name="student_om_id" />
+    </Key>
+    <Property Name="first_name" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="last_name" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="student_om_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="score">
+    <Key>
+      <PropertyRef Name="score_studen_om_id" />
+      <PropertyRef Name="score_id" />
+    </Key>
+    <Property Name="score1" Type="nvarchar" Nullable="false" MaxLength="1" />
+    <Property Name="score_studen_om_id" Type="bigint" Nullable="false" />
+    <Property Name="score_test_id" Type="int" Nullable="false" />
+    <Property Name="score_id" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="studen_om_id" />
+    </Key>
+    <Property Name="studen_om_id" Type="bigint" Nullable="false" />
+    <Property Name="student_id" Type="bigint" Nullable="false" />
+    <Property Name="first_name" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="last_name" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="mother_name" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="birth_date" Type="datetime" Nullable="false" />
+    <Property Name="sex" Type="nvarchar" Nullable="true" MaxLength="1" />
+    <Property Name="city" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="zip" Type="int" Nullable="false" />
+    <Property Name="street" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="email" Type="nvarchar" Nullable="true" MaxLength="80" />
+    <Property Name="home_phone" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="mobile" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="student_user_id" Type="int" Nullable="false" />
+    <Property Name="student_class_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="teacher_om_id" />
+    </Key>
+    <Property Name="teacher_om_id" Type="bigint" Nullable="false" />
+    <Property Name="first_name" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="last_name" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="mother_name" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="birth_date" Type="datetime" Nullable="false" />
+    <Property Name="sex" Type="nvarchar" Nullable="false" MaxLength="1" />
+    <Property Name="city" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="zip" Type="int" Nullable="false" />
+    <Property Name="street" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="email" Type="nvarchar" Nullable="true" MaxLength="80" />
+    <Property Name="home_phone" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="mobile" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="teacher_user_id" Type="int" Nullable="false" />
+    <Property Name="teacher_class_id" Type="int" Nullable="false" />
+    <Property Name="teacher_lesson_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="test">
+    <Key>
+      <PropertyRef Name="test_id" />
+    </Key>
+    <Property Name="test_id" Type="int" Nullable="false" />
+    <Property Name="lesson_id" Type="int" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="test_class_id" Type="int" Nullable="false" />
+    <Property Name="test_lesson_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="userSet">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="user_access_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="usersteacher">
+    <End Role="users" Type="eDiaryModel.Store.userSet" Multiplicity="1" />
+    <End Role="teacher" Type="eDiaryModel.Store.teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="teacher">
+        <PropertyRef Name="teacher_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="usersstudent">
+    <End Role="users" Type="eDiaryModel.Store.userSet" Multiplicity="1" />
+    <End Role="student" Type="eDiaryModel.Store.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="student_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="useraccess">
+    <End Role="access" Type="eDiaryModel.Store.access" Multiplicity="1" />
+    <End Role="user" Type="eDiaryModel.Store.userSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="access">
+        <PropertyRef Name="access_id" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="user_access_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="classstudent">
+    <End Role="class" Type="eDiaryModel.Store.class" Multiplicity="1" />
+    <End Role="student" Type="eDiaryModel.Store.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class">
+        <PropertyRef Name="class_id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="student_class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="classteacher">
+    <End Role="class" Type="eDiaryModel.Store.class" Multiplicity="1" />
+    <End Role="teacher" Type="eDiaryModel.Store.teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class">
+        <PropertyRef Name="class_id" />
+      </Principal>
+      <Dependent Role="teacher">
+        <PropertyRef Name="teacher_class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="lessonteacher">
+    <End Role="lesson" Type="eDiaryModel.Store.lesson" Multiplicity="1" />
+    <End Role="teacher" Type="eDiaryModel.Store.teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lesson">
+        <PropertyRef Name="lesson_id" />
+      </Principal>
+      <Dependent Role="teacher">
+        <PropertyRef Name="teacher_lesson_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="classtest">
+    <End Role="class" Type="eDiaryModel.Store.class" Multiplicity="1" />
+    <End Role="test" Type="eDiaryModel.Store.test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class">
+        <PropertyRef Name="class_id" />
+      </Principal>
+      <Dependent Role="test">
+        <PropertyRef Name="test_class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="lessontest">
+    <End Role="lesson" Type="eDiaryModel.Store.lesson" Multiplicity="1" />
+    <End Role="test" Type="eDiaryModel.Store.test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lesson">
+        <PropertyRef Name="lesson_id" />
+      </Principal>
+      <Dependent Role="test">
+        <PropertyRef Name="test_lesson_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="studentscore">
+    <End Role="student" Type="eDiaryModel.Store.student" Multiplicity="1" />
+    <End Role="score" Type="eDiaryModel.Store.score" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="studen_om_id" />
+      </Principal>
+      <Dependent Role="score">
+        <PropertyRef Name="score_studen_om_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="testscore">
+    <End Role="test" Type="eDiaryModel.Store.test" Multiplicity="1" />
+    <End Role="score" Type="eDiaryModel.Store.score" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="test">
+        <PropertyRef Name="test_id" />
+      </Principal>
+      <Dependent Role="score">
+        <PropertyRef Name="score_test_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
