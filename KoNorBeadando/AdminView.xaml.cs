@@ -29,19 +29,26 @@ namespace KoNorBeadando
 
         private void teachersGridButton(object sender, RoutedEventArgs e)
         {
-            if (adminTeachersDataGrid.IsVisible == false)
-            {
-                adminTeachersDataGrid.Visibility = Visibility.Visible;
-            }
-            adminTeachersDataGrid.DataContext = context.Teacher;
+        //    if (adminTeachersDataGrid.IsVisible == false)
+        //    {
+        //        adminTeachersDataGrid.Visibility = Visibility.Visible;
+        //    }
+        //    adminTeachersDataGrid.DataContext = context.Teacher;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (adminStudentsDataGrid.IsVisible == false)
-            {
-                adminStudentsDataGrid.Visibility = Visibility.Visible;
-            }
+        //    if (adminStudentsDataGrid.IsVisible == false)
+        //    {
+        //        adminStudentsDataGrid.Visibility = Visibility.Visible;
+        //    }
+        }
+
+
+
+        private void SaveBtnClick(object sender, RoutedEventArgs e)
+        {
+            context.SaveChanges();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -53,11 +60,6 @@ namespace KoNorBeadando
             eDiaryDataSetStudentTableAdapter.Fill(eDiaryDataSet.Student);
             System.Windows.Data.CollectionViewSource studentViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("studentViewSource")));
             studentViewSource.View.MoveCurrentToFirst();
-        }
-
-        private void SaveBtnClick(object sender, RoutedEventArgs e)
-        {
-            context.SaveChanges();
         }
     }
 }

@@ -22,3 +22,4 @@ C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\KoNorBeada
 C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\AdminView.g.cs
 C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\AdminView.baml
+C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\KoNorBeadando.csprojResolveAssemblyReference.cache

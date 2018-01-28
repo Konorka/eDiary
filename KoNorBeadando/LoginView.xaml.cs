@@ -32,6 +32,7 @@ namespace KoNorBeadando
             eDiaryModelDB context = new eDiaryModelDB();
             //using (eDiaryModelDB context = new eDiaryModelDB())
             {
+                
                 var user = context.User.FirstOrDefault(x => x.username == username);
                 if (user !=null)
                 {
@@ -62,7 +63,7 @@ namespace KoNorBeadando
                         MessageBox.Show("Rossz felhasználónév vagy jelszó");
 
                 }else
-                    MessageBox.Show("shit");
+                    MessageBox.Show("Rossz felhasználónév vagy jelszó");
             }
 
         }

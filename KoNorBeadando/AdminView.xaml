@@ -5,28 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KoNorBeadando"
         mc:Ignorable="d"
-        Title="AdminView" Height="460.227" Width="740.625" Loaded="Window_Loaded">
+        Title="AdminView" Height="490.406" Width="752.867" Loaded="Window_Loaded">
     <Window.Resources>
         <local:eDiaryDataSet x:Key="eDiaryDataSet"/>
         <CollectionViewSource x:Key="studentViewSource" Source="{Binding Student, Source={StaticResource eDiaryDataSet}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource studentViewSource}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="71*"/>
-            <RowDefinition Height="72*"/>
-        </Grid.RowDefinitions>
-        <DataGrid x:Name="adminTeachersDataGrid" Height="288" Margin="10,74,10,67" Width="713" Grid.RowSpan="2">
-            <DataGrid.DataContext>
-                <local:Teacher teacher_birth_date=""/>
-            </DataGrid.DataContext>
+        <Button Content="Tanárok" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="660,32,0,0" Click="teachersGridButton"/>
+        <Button Content="Törlés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="660,429,0,0"/>
+        <Button Content="Szerkesztés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="580,429,0,0"/>
+        <Button Content="Hozzáadás" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="500,429,0,0"/>
+        <Button x:Name="saveBtn" Content="Mentés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="0,429,0,0" Click="SaveBtnClick"/>
+        <DataGrid x:Name="studentDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,52,10,61" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="student_om_idColumn" Binding="{Binding student_om_id}" Header="student om id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="student_idColumn" Binding="{Binding student_id}" Header="student id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="student_first_nameColumn" Binding="{Binding student_first_name}" Header="student first name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="student_last_nameColumn" Binding="{Binding student_last_name}" Header="student last name" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="student_birth_dateColumn" Header="student birth date" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding student_birth_date, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="student_genderColumn" Binding="{Binding student_gender}" Header="student gender" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="student_cityColumn" Binding="{Binding student_city}" Header="student city" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="student_zipColumn" Binding="{Binding student_zip}" Header="student zip" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="student_home_addressColumn" Binding="{Binding student_home_address}" Header="student home address" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="student_emailColumn" Binding="{Binding student_email}" Header="student email" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="student_home_phoneColumn" Binding="{Binding student_home_phone}" Header="student home phone" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="student_mobileColumn" Binding="{Binding student_mobile}" Header="student mobile" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="student_class_idColumn" Binding="{Binding student_class_id}" Header="student class id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="student_user_idColumn" Binding="{Binding student_user_id}" Header="student user id" Width="SizeToHeader"/>
+            </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="adminStudentsDataGrid" Height="288" Margin="10,74,10,67" Grid.RowSpan="2" Width="713" ItemsSource="{Binding}" />
-        <Button Content="Diákok" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="648,23,0,0" Click="Button_Click"/>
-        <Button Content="Tanárok" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="557,23,0,0" Click="teachersGridButton"/>
-        <Button Content="Törlés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="648,170.659,0,0" Grid.Row="1"/>
-        <Button Content="Szerkesztés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="557,170.659,0,0" Grid.Row="1"/>
-        <Button Content="Hozzáadás" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="465,170.659,0,0" Grid.Row="1"/>
-        <Button x:Name="saveBtn" Content="Mentés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,176,0,0" Grid.Row="1" Click="SaveBtnClick"/>
-
     </Grid>
 </Window>
