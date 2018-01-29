@@ -20,7 +20,8 @@ namespace KoNorBeadando
     public partial class AdminView : Window
     {
         eDiaryModelDB context = new eDiaryModelDB();
-        
+        eDiaryDataSet eDiaryDataSet = new eDiaryDataSet();
+
         public AdminView()
         {
             InitializeComponent();
@@ -47,13 +48,13 @@ namespace KoNorBeadando
 
         private void SaveBtnClick(object sender, RoutedEventArgs e)
         {
-            context.SaveChanges();
+            eDiaryDataSet.AcceptChanges();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            eDiaryDataSet eDiaryDataSet = ((eDiaryDataSet)(FindResource("eDiaryDataSet")));
+            eDiaryDataSet = ((eDiaryDataSet)(FindResource("eDiaryDataSet")));
             // Entity Frame által generált kód
 
             
