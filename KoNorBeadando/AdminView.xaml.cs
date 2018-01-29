@@ -20,31 +20,30 @@ namespace KoNorBeadando
     public partial class AdminView : Window
     {
         eDiaryModelDB context = new eDiaryModelDB();
+        
         public AdminView()
         {
             InitializeComponent();
-           // adminStudentsDataGrid.ItemsSource = context.Student;
-                
+            // adminStudentsDataGrid.ItemsSource = context.Student;
+            
         }
 
-        private void teachersGridButton(object sender, RoutedEventArgs e)
+        private void teachersOrStudentsButton(object sender, RoutedEventArgs e)
         {
-        //    if (adminTeachersDataGrid.IsVisible == false)
-        //    {
-        //        adminTeachersDataGrid.Visibility = Visibility.Visible;
-        //    }
-        //    adminTeachersDataGrid.DataContext = context.Teacher;
+            if (teacherDataGrid.IsVisible == false)
+            {
+                studentDataGrid.Visibility = Visibility.Hidden;
+                teacherDataGrid.Visibility = Visibility.Visible;
+                studentOrTeacers.Content = "Diákok";
+            }
+            else
+            {
+                teacherDataGrid.Visibility = Visibility.Hidden;
+                studentDataGrid.Visibility = Visibility.Visible;
+                studentOrTeacers.Content = "Tanárok";
+            }
+            
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-        //    if (adminStudentsDataGrid.IsVisible == false)
-        //    {
-        //        adminStudentsDataGrid.Visibility = Visibility.Visible;
-        //    }
-        }
-
-
 
         private void SaveBtnClick(object sender, RoutedEventArgs e)
         {
@@ -54,12 +53,21 @@ namespace KoNorBeadando
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            KoNorBeadando.eDiaryDataSet eDiaryDataSet = ((KoNorBeadando.eDiaryDataSet)(this.FindResource("eDiaryDataSet")));
-            // Load data into the table Student. You can modify this code as needed.
-            KoNorBeadando.eDiaryDataSetTableAdapters.StudentTableAdapter eDiaryDataSetStudentTableAdapter = new KoNorBeadando.eDiaryDataSetTableAdapters.StudentTableAdapter();
+            eDiaryDataSet eDiaryDataSet = ((eDiaryDataSet)(FindResource("eDiaryDataSet")));
+            // Entity Frame által generált kód
+
+            
+            eDiaryDataSetTableAdapters.StudentTableAdapter eDiaryDataSetStudentTableAdapter = new eDiaryDataSetTableAdapters.StudentTableAdapter();
             eDiaryDataSetStudentTableAdapter.Fill(eDiaryDataSet.Student);
-            System.Windows.Data.CollectionViewSource studentViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("studentViewSource")));
+            CollectionViewSource studentViewSource = ((CollectionViewSource)(FindResource("studentViewSource")));
             studentViewSource.View.MoveCurrentToFirst();
+
+            // Load data into the table Teacher. You can modify this code as needed.
+            eDiaryDataSetTableAdapters.TeacherTableAdapter eDiaryDataSetTeacherTableAdapter = new eDiaryDataSetTableAdapters.TeacherTableAdapter();
+            eDiaryDataSetTeacherTableAdapter.Fill(eDiaryDataSet.Teacher);
+            CollectionViewSource teacherViewSource = ((CollectionViewSource)(FindResource("teacherViewSource")));
+            teacherViewSource.View.MoveCurrentToFirst();
+            
         }
     }
 }

@@ -66,6 +66,7 @@
     <Compile Include="Access.cs">
       <DependentUpon>eDiaryModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AdminSqlLoad.cs" />
     <Compile Include="AdminView.xaml.cs">
       <DependentUpon>AdminView.xaml</DependentUpon>
     </Compile>
