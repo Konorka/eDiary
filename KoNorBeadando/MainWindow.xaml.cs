@@ -20,9 +20,22 @@ namespace KoNorBeadando
     /// </summary>
     public partial class MainWindow : Window
     {
+      
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            KoNorBeadando.eDiaryDataSet eDiaryDataSet = ((KoNorBeadando.eDiaryDataSet)(this.FindResource("eDiaryDataSet")));
+            // Load data into the table Lesson. You can modify this code as needed.
+            KoNorBeadando.eDiaryDataSetTableAdapters.LessonTableAdapter eDiaryDataSetLessonTableAdapter = new KoNorBeadando.eDiaryDataSetTableAdapters.LessonTableAdapter();
+            eDiaryDataSetLessonTableAdapter.Fill(eDiaryDataSet.Lesson);
+            System.Windows.Data.CollectionViewSource lessonViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("lessonViewSource")));
+            lessonViewSource.View.MoveCurrentToFirst();
         }
     }
 }

@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KoNorBeadando"
         mc:Ignorable="d"
-        Title="MainWindow" Height="479.261" Width="878.977">
-    <Grid>
+        Title="MainWindow" Height="479.261" Width="878.977" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:eDiaryDataSet x:Key="eDiaryDataSet"/>
+        <CollectionViewSource x:Key="lessonViewSource" Source="{Binding Lesson, Source={StaticResource eDiaryDataSet}}"/>
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource lessonViewSource}" >
         <DataGrid HorizontalAlignment="Left" Height="285" Margin="10,93,0,0" VerticalAlignment="Top" Width="851" Grid.ColumnSpan="3" IsEnabled="False">
 
             <DataGrid.Resources>
@@ -22,22 +27,18 @@
                 <DataGridTextColumn Header="Átlag" Width="40"/>
                 <DataGridTextColumn Header="Hiányzások" Width="140"/>
             </DataGrid.Columns>
-
         </DataGrid>
 
-
-        <DataGrid x:Name="DataGridStudent" HorizontalAlignment="Left" Height="263" Margin="10,115,0,0" VerticalAlignment="Top" Width="851" Grid.ColumnSpan="3">
-
+        <DataGrid DataContext="{StaticResource lessonViewSource}" x:Name="DataGridStudent"  AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="263" Margin="10,115,0,0" VerticalAlignment="Top" Width="851" Grid.ColumnSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalContentAlignment" Value="Center" />
                 </Style>
             </DataGrid.Resources>
 
-
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Tantárgyak" Width="70"/>
-                <DataGridTextColumn Binding="{Binding StudentMark.MarkSep}"  Header="09" Width="*" />
+            <DataGrid.Columns >
+                <DataGridTextColumn Binding="{Binding lesson_name}" Header="Tantárgyak" Width="70"/>
+                <DataGridTextColumn Header="09" Width="*"/>
                 <DataGridTextColumn Header="10" Width="*"/>
                 <DataGridTextColumn Header="11" Width="*" />
                 <DataGridTextColumn Header="12" Width="*" />

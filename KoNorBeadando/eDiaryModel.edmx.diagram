@@ -8,11 +8,11 @@
         <EntityTypeShape EntityType="eDiaryModel.Access" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eDiaryModel.Class" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eDiaryModel.Lesson" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="eDiaryModel.Score" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDiaryModel.Score" Width="1.5" PointX="14.625" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="eDiaryModel.Student" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="eDiaryModel.Teacher" Width="1.5" PointX="7.125" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDiaryModel.Teacher" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eDiaryModel.Test" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="eDiaryModel.User" Width="1.5" PointX="9.125" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDiaryModel.User" Width="1.5" PointX="13.125" PointY="0.875" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
