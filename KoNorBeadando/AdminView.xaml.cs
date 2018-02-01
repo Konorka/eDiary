@@ -19,8 +19,10 @@ namespace KoNorBeadando
     /// </summary>
     public partial class AdminView : Window
     {
-        eDiaryModelDB context = new eDiaryModelDB();
         eDiaryDataSet eDiaryDataSet = new eDiaryDataSet();
+        eDiaryDataSetTableAdapters.StudentTableAdapter StudentContext = new eDiaryDataSetTableAdapters.StudentTableAdapter();
+        eDiaryDataSetTableAdapters.TeacherTableAdapter TeacherContext = new eDiaryDataSetTableAdapters.TeacherTableAdapter();
+
 
         public AdminView()
         {
@@ -48,27 +50,32 @@ namespace KoNorBeadando
 
         private void SaveBtnClick(object sender, RoutedEventArgs e)
         {
-            eDiaryDataSet.AcceptChanges();
+            StudentContext.Update(eDiaryDataSet);
+            TeacherContext.Update(eDiaryDataSet);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
             eDiaryDataSet = ((eDiaryDataSet)(FindResource("eDiaryDataSet")));
-            // Entity Frame által generált kód
-
-            
-            eDiaryDataSetTableAdapters.StudentTableAdapter eDiaryDataSetStudentTableAdapter = new eDiaryDataSetTableAdapters.StudentTableAdapter();
-            eDiaryDataSetStudentTableAdapter.Fill(eDiaryDataSet.Student);
+            // Student Load
+            StudentContext.Fill(eDiaryDataSet.Student);
             CollectionViewSource studentViewSource = ((CollectionViewSource)(FindResource("studentViewSource")));
             studentViewSource.View.MoveCurrentToFirst();
-
-            // Load data into the table Teacher. You can modify this code as needed.
-            eDiaryDataSetTableAdapters.TeacherTableAdapter eDiaryDataSetTeacherTableAdapter = new eDiaryDataSetTableAdapters.TeacherTableAdapter();
-            eDiaryDataSetTeacherTableAdapter.Fill(eDiaryDataSet.Teacher);
+            // Teacher loand 
+            TeacherContext.Fill(eDiaryDataSet.Teacher);
             CollectionViewSource teacherViewSource = ((CollectionViewSource)(FindResource("teacherViewSource")));
             teacherViewSource.View.MoveCurrentToFirst();
             
+        }
+
+        private void AdminClosingBtn(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Biztosan ki akar lépni?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
