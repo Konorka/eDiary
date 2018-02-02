@@ -29,43 +29,65 @@ namespace KoNorBeadando
         {
             var username = usernameTextBox.Text;
             var password = passwordTextbox.Password;
-            eDiaryModelDB context = new eDiaryModelDB();
-            //using (eDiaryModelDB context = new eDiaryModelDB())
+            var context = new eDiaryModelDB();
+            var viewModel = new LoginViewModel();
+
+            viewModel.Login(username, password);
+            var userId = viewModel.UserId;
+            switch (viewModel.Login(username, password))
             {
-                
-                var user = context.User.FirstOrDefault(x => x.username == username);
-                if (user !=null)
-                {
-                    if (user.password == password)
-                    {
-                        switch (user.user_access_id)
-                        {
-                            case 1:
-                                AdminView adminview = new AdminView();
-                                adminview.Show();
-                                this.Close();break;
+                case 1:
+                    AdminView adminview = new AdminView();
+                    adminview.Show();
+                    this.Close(); break;
 
-                            case 2:
-                                MainWindow teacherView = new MainWindow();
-                                teacherView.Show();
-                                this.Close(); break;
+                case 2:
+                    MainWindow teacherView = new MainWindow();
+                    teacherView.Show();
+                    this.Close(); break;
 
-                            case 3:
-                                MainWindow studentView = new MainWindow();
-                                studentView.Show();
-                                this.Close(); break;
+                case 3:
+                    MainWindow studentView = new MainWindow();
+                    studentView.Show();
+                    this.Close(); break;
 
-                            default: MessageBox.Show("ERROR 404");break;
-                        }
-                        
-                    }
-                    else
-                        MessageBox.Show("Rossz felhasználónév vagy jelszó");
-
-                }else
-                    MessageBox.Show("Rossz felhasználónév vagy jelszó");
+                default: MessageBox.Show("ERROR 404"); break;
             }
 
+            //var user = context.User.FirstOrDefault(x => x.username == username);
+            //if (user != null)
+            //{
+            //    if (user.password == password)
+            //    {
+            //        switch (user.user_access_rank)
+            //        {
+            //            case 1:
+            //                AdminView adminview = new AdminView();
+            //                adminview.Show();
+            //                this.Close(); break;
+
+            //            case 2:
+            //                MainWindow teacherView = new MainWindow();
+            //                teacherView.Show();
+            //                this.Close(); break;
+
+            //            case 3:
+            //                MainWindow studentView = new MainWindow();
+            //                studentView.Show();
+            //                this.Close(); break;
+
+            //            default: MessageBox.Show("ERROR 404"); break;
+            //        }
+
+            //    }
+            //    else
+            //        MessageBox.Show("Rossz felhasználónév vagy jelszó");
+
+            //}
+            //else
+            //    MessageBox.Show("Rossz felhasználónév vagy jelszó");
+
+
         }
-    }
+        }
 }

@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="634a4c5ef09f4e9ab98b0852ebc3115b" Name="Diagram1">
-        <EntityTypeShape EntityType="eDiaryModel.Access" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eDiaryModel.Class" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eDiaryModel.Lesson" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="eDiaryModel.Score" Width="1.5" PointX="14.625" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="eDiaryModel.Student" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="eDiaryModel.Teacher" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="eDiaryModel.Test" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="eDiaryModel.User" Width="1.5" PointX="13.125" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDiaryModel.Score" Width="1.5" PointX="8.375" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDiaryModel.Student" Width="1.5" PointX="6.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDiaryModel.Teacher" Width="1.5" PointX="10.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDiaryModel.Test" Width="1.5" PointX="8.375" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDiaryModel.User" Width="1.5" PointX="0.625" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="eDiaryModel.UserStudent" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

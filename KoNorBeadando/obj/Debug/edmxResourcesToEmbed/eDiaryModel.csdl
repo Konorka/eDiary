@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="eDiaryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Access">
-    <Key>
-      <PropertyRef Name="access_id" />
-    </Key>
-    <Property Name="access_id" Type="Int32" Nullable="false" />
-    <Property Name="access_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-  </EntityType>
   <EntityType Name="Class">
     <Key>
       <PropertyRef Name="class_id" />
@@ -79,14 +72,14 @@
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="user_id" />
+      <PropertyRef Name="user_access_rank" />
     </Key>
     <Property Name="user_id" Type="Int32" Nullable="false" />
     <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="user_access_id" Type="Int32" Nullable="false" />
+    <Property Name="user_access_rank" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityContainer Name="eDiaryModelDB" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Access" EntityType="Self.Access" />
     <EntitySet Name="Class" EntityType="Self.Class" />
     <EntitySet Name="Lesson" EntityType="Self.Lesson" />
     <EntitySet Name="Score" EntityType="Self.Score" />

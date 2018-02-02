@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="eDiaryModelStoreContainer" CdmEntityContainer="eDiaryModelDB">
-    <EntitySetMapping Name="Access">
-      <EntityTypeMapping TypeName="eDiaryModel.Access">
-        <MappingFragment StoreEntitySet="Access">
-          <ScalarProperty Name="access_id" ColumnName="access_id" />
-          <ScalarProperty Name="access_name" ColumnName="access_name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Class">
       <EntityTypeMapping TypeName="eDiaryModel.Class">
         <MappingFragment StoreEntitySet="Class">
@@ -87,10 +79,10 @@
     <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="eDiaryModel.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="user_access_rank" ColumnName="user_access_rank" />
           <ScalarProperty Name="user_id" ColumnName="user_id" />
           <ScalarProperty Name="username" ColumnName="username" />
           <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="user_access_id" ColumnName="user_access_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

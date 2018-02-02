@@ -32,8 +32,6 @@ public partial class eDiaryModelDB : DbContext
     }
 
 
-    public virtual DbSet<Access> Access { get; set; }
-
     public virtual DbSet<Class> Class { get; set; }
 
     public virtual DbSet<Lesson> Lesson { get; set; }

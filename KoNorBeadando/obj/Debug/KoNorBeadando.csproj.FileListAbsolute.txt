@@ -22,7 +22,6 @@ C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\KoNorBeada
 C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\AdminView.g.cs
 C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\AdminView.baml
-C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\KoNorBeadando.csprojResolveAssemblyReference.cache
 C:\Users\konor\Desktop\eDiary-master\KoNorBeadando\bin\Debug\KoNorBeadando.exe.config
 C:\Users\konor\Desktop\eDiary-master\KoNorBeadando\bin\Debug\KoNorBeadando.exe
 C:\Users\konor\Desktop\eDiary-master\KoNorBeadando\bin\Debug\KoNorBeadando.pdb
@@ -48,3 +47,6 @@ C:\Users\konor\Desktop\eDiary-master\KoNorBeadando\obj\Debug\KoNorBeadando.cspro
 C:\Users\konor\Desktop\eDiary-master\KoNorBeadando\obj\Debug\KoNorBeadando.csproj.CoreCompileInputs.cache
 C:\Users\konor\Desktop\eDiary-master\KoNorBeadando\obj\Debug\KoNorBeadando.exe
 C:\Users\konor\Desktop\eDiary-master\KoNorBeadando\obj\Debug\KoNorBeadando.pdb
+C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\TeacherView.g.cs
+C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\TeacherView.baml
+C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\KoNorBeadando.csprojResolveAssemblyReference.cache

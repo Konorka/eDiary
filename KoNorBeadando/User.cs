@@ -24,7 +24,7 @@ public partial class User
 
     public string password { get; set; }
 
-    public int user_access_id { get; set; }
+    public int user_access_rank { get; set; }
 
 }
 

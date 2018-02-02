@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="eDiaryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Access">
-    <Key>
-      <PropertyRef Name="access_id" />
-    </Key>
-    <Property Name="access_id" Type="int" Nullable="false" />
-    <Property Name="access_name" Type="varchar" MaxLength="20" Nullable="false" />
-  </EntityType>
   <EntityType Name="Class">
     <Key>
       <PropertyRef Name="class_id" />
@@ -76,23 +69,32 @@
     <Property Name="test_lesson_id" Type="int" Nullable="false" />
     <Property Name="test_date" Type="date" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'eDiary.dbo.User' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="user_id" />
+      <PropertyRef Name="user_access_rank" />
     </Key>
-    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="bigint" Nullable="false" />
     <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="user_access_id" Type="int" Nullable="false" />
+    <Property Name="user_access_rank" Type="int" Nullable="false" />
   </EntityType>
   <EntityContainer Name="eDiaryModelStoreContainer">
-    <EntitySet Name="Access" EntityType="Self.Access" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lesson" EntityType="Self.Lesson" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Score" EntityType="Self.Score" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [User].[user_id] AS [user_id], 
+    [User].[username] AS [username], 
+    [User].[password] AS [password], 
+    [User].[user_access_rank] AS [user_access_rank]
+    FROM [dbo].[User] AS [User]</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>
