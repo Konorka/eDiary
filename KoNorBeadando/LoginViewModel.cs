@@ -8,24 +8,24 @@ namespace KoNorBeadando
 {
     public class LoginViewModel
     {
-        public int UserId { get; set; }
-        public int UserAcces { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public User AuthenticatedUser { get; private set; }
+
         public eDiaryModelDB context = new eDiaryModelDB();
 
-        public int Login(string username, string password)
+        public bool Login()
         {
-            var user = context.User.FirstOrDefault(x => x.username == username);
-            
-            if (user != null)
-            {
-                if (user.password == password)
-                {
-                    UserId = user.user_id;
-                    return user.user_access_rank;
-                }
-            } return -1;
+            var manager = new DataManager();
+            var user = manager.GetUser(Username, Password);
+            if (user == null)
+                return false;
+
+                AuthenticatedUser = new User(user);
+            return true;
         }
-              
+       
+
 
     }
 }

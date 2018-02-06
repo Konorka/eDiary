@@ -20,17 +20,29 @@ namespace KoNorBeadando
     /// </summary>
     public partial class MainWindow : Window
     {
-        LoginViewModel viewModel = new LoginViewModel();
+        readonly MainViewModel _vm;
+        LoginView _lv = new LoginView();
+        AdminView _av = new AdminView();
+        Student student = new Student();
+        LoginView viewModel = new LoginView();
         public eDiaryModelDB context = new eDiaryModelDB();
         public MainWindow()
         {
+
             InitializeComponent();
-            
+            var loginView = new LoginView();
+            _vm = new MainViewModel
+            {
+                user = loginView.ViewModel.AuthenticatedUser
+            };
+            DataContext = _vm;
+            nameLabel.Content = _vm.user.user_id;
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-           
+            nameLabel.Content = viewModel.Username;
             KoNorBeadando.eDiaryDataSet eDiaryDataSet = ((KoNorBeadando.eDiaryDataSet)(this.FindResource("eDiaryDataSet")));
             // Load data into the table Lesson. You can modify this code as needed.
             KoNorBeadando.eDiaryDataSetTableAdapters.LessonTableAdapter eDiaryDataSetLessonTableAdapter = new KoNorBeadando.eDiaryDataSetTableAdapters.LessonTableAdapter();

@@ -17,8 +17,19 @@ using System;
     
 public partial class User
 {
+        public User(User user)
+        {
+            user_id = user.user_id;
+            username = user.username;
+            password = user.password;
+            user_access_rank = user.user_access_rank;
+        }
+        public User()
+        {
 
-    public int user_id { get; set; }
+        }
+
+        public int user_id { get; set; }
 
     public string username { get; set; }
 

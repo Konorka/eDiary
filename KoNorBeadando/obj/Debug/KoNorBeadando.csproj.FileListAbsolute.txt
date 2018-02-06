@@ -50,3 +50,7 @@ C:\Users\konor\Desktop\eDiary-master\KoNorBeadando\obj\Debug\KoNorBeadando.pdb
 C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\TeacherView.g.cs
 C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\TeacherView.baml
 C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\obj\Debug\KoNorBeadando.csprojResolveAssemblyReference.cache
+C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\bin\Debug\MoreLinq.dll
+C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\bin\Debug\System.ValueTuple.dll
+C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\bin\Debug\MoreLinq.xml
+C:\Users\konor\Desktop\Badandó\KoNorBeadando\KoNorBeadando\bin\Debug\System.ValueTuple.xml

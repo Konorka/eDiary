@@ -8,7 +8,7 @@
         Title="LoginView" Height="258.239" Width="220.739">
     <Grid Background="#2e3137">
         <Button Click="LoginClick"  Background="#545d6a" Foreground="White" Content="Bejelentkezés" HorizontalAlignment="Left" Margin="56,160,0,0" VerticalAlignment="Top" Width="92" Height="30"/>
-        <TextBox x:Name="usernameTextBox"  HorizontalAlignment="Left" Background="#545d6a" Foreground="White" Height="23" Margin="10,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
+        <TextBox Text="{Binding Username}" x:Name="usernameTextBox"  HorizontalAlignment="Left" Background="#545d6a" Foreground="White" Height="23" Margin="10,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
         <PasswordBox x:Name="passwordTextbox" HorizontalAlignment="Left"  Background="#545d6a" Foreground="White" Margin="10,113,0,0" VerticalAlignment="Top" Width="185" Height="24"/>
         <Label Content="Felhasználónév:" Foreground="White" HorizontalAlignment="Left" Margin="11,38,0,0" VerticalAlignment="Top"/>
         <Label Content="Jelszó:" Foreground="White" HorizontalAlignment="Left" Margin="11,87,0,0" VerticalAlignment="Top"/>
